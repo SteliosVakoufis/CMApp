@@ -11,7 +11,7 @@ namespace CourseManagementApp.Pages.Courses
         [BindProperty, Required]
         public CourseDTO CourseDTO { get; set; }
 
-        ICourseManagementService _service;
+        private readonly ICourseManagementService _service;
         public CreateModel(ICourseManagementService service)
         {
             _service = service;

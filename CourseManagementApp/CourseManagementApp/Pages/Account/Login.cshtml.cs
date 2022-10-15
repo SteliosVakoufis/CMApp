@@ -17,7 +17,7 @@ namespace CourseManagementApp.Pages.Account
         [BindProperty]
         public bool WrongCredentials { get; set; }
 
-        ICourseManagementService _service;
+        private readonly ICourseManagementService _service;
         public LoginModel(ICourseManagementService service)
         {
             _service = service;

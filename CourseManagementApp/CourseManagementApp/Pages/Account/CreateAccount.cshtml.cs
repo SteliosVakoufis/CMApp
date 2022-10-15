@@ -15,7 +15,7 @@ namespace CourseManagementApp.Pages.Account
 
         public string errorMsg = "";
 
-        ICourseManagementService _service;
+        private readonly ICourseManagementService _service;
         public CreateAccountModel(ICourseManagementService service)
         {
             _service = service;

@@ -10,7 +10,7 @@ namespace CourseManagementApp.Pages.Courses
         [BindProperty]
         public CourseTeacherDTO CourseTeacher { get; set; }
 
-        ICourseManagementService _service;
+        private readonly ICourseManagementService _service;
         public ViewCourseModel(ICourseManagementService service)
         {
             _service = service;

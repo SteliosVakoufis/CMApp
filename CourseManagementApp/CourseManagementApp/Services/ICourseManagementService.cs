@@ -13,8 +13,12 @@ namespace CourseManagementApp.Services
         
         List<CourseDTO>? GetAllCourses();
 
+        List<CourseDTO>? GetCoursesByStudentId(int id);
+
         CourseDTO? GetCourse(int id);
 
         CourseTeacherDTO? GetCourseTeacher(int id);
+
+        bool UpdateCourse(StudentCoursesJTDTO studentCoursesJTDTO);
     }
 }

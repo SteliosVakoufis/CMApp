@@ -6,26 +6,29 @@
 
 <div class="container">
     <h3 class="text-center">Welcome @User?.Identity?.Name</h3>
-    <div class="row my-3 p-3 shadow shadow-lg border border-1">
+    <div class="row my-3 p-3 shadow shadow-lg border border-1" style="min-height: 500px">
         <div class="col-md-6">
             <h4 class="text-center">My Courses</h4>
             <div class="container py-2">
-                <div class="container shadow-sm py-2">
-                    <label class="col-form-label text-start" for="ViewID">Course name</label>
-                    <a class="btn btn-primary btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">View</a>
-                    <a class="btn btn-danger btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">Leave</a>
-                </div>
+                @foreach (var item in Model.StudentCourses)
+                {
+                    <div class="container shadow-sm py-2">
+                        <label class="col-form-label text-start" for="ViewID">@item.Name</label>
+                        <a class="btn btn-primary btn-sm float-end w-25 mx-1" name="ViewID" href="/Courses/ViewCourse/@item.Id">View</a>
+                        <a class="btn btn-danger btn-sm float-end w-25 mx-1" name="ViewID" href="/Courses/Join/@item.Id/@User?.Claims.ToList()[1].Value">Leave</a>
+                    </div>
+                }
             </div>
         </div>
         <div class="col-md-6">
             <h4 class="text-center">Available Courses</h4>
             <div class="container py-2">
-                @foreach (var item in Model.Courses)
+                @foreach (var item in Model.AvailableCourses)
                 {
                     <div class="container shadow-sm py-2">
                         <label class="col-form-label text-start" for="ViewID">@item.Name</label>
                         <a class="btn btn-primary btn-sm float-end w-25 mx-1" name="ViewID" href="/Courses/ViewCourse/@item.Id">View</a>
-                        <a class="btn btn-success btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">Join</a>
+                        <a class="btn btn-success btn-sm float-end w-25 mx-1" name="ViewID" href="/Courses/Join/@item.Id/@User?.Claims.ToList()[1].Value">Join</a>
                     </div>
                 }
             </div>

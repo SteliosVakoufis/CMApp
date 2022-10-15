@@ -1,6 +1,7 @@
 ﻿using CourseManagementApp.Data;
 using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Data.Models;
+using System.Collections.Generic;
 
 namespace CourseManagementApp.DAO
 {
@@ -101,13 +102,46 @@ namespace CourseManagementApp.DAO
             {
                 return _context.Courses.ToList();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        public List<Course> GetCoursesByStudentId(int id)
+        {
+            try
+            {
+                var query =
+                    (from course in _context.Courses
+                     join sc in _context.StudentsCoursesJT
+                        on course.Id equals sc.CourseId
+                     where sc.StudentId == id
+                     select new { course.Name, course.Description, course.Id}
+                     );
+
+                List<Course> result = new();
+
+                foreach (var course in query)
+                {
+                    result.Add(new()
+                    {
+                        Id = course.Id,
+                        Name = course.Name,
+                        Description = course.Description,
+                    });
+                }
+
+                return result;
+            }
             catch (Exception)
             {
                 throw;
             }
         }
 
-        public Course GetCourse(int id)
+        public Course GetCourseById(int id)
         {
             try
             {
@@ -144,6 +178,26 @@ namespace CourseManagementApp.DAO
                 };
 
                 return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool UpdateCourseStudentJT(StudentCourseJT data)
+        {
+            try
+            {
+                bool exists = _context.StudentsCoursesJT.Any(x =>
+                    x.StudentId == data.StudentId &&
+                    x.CourseId == data.CourseId        
+                );
+
+                if (exists) return false; 
+
+                _context.StudentsCoursesJT.Add(data);
+                return (_context.SaveChanges() > 0);
             }
             catch (Exception)
             {

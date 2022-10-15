@@ -14,9 +14,13 @@ namespace CourseManagementApp.DAO
 
         List<Course> GetAllCourses();
 
-        Course GetCourse(int id);
+        List<Course> GetCoursesByStudentId(int id);
+
+        Course GetCourseById(int id);
 
         CourseTeacherDTO GetCourseTeacher(int id);
+
+        bool UpdateCourseStudentJT(StudentCourseJT data);
 
         //DbSet<Student> GetStudents();
 

@@ -39,9 +39,10 @@ CREATE TABLE Courses (
 );
 
 CREATE TABLE StudentsCourses_JT(
+	id int NOT NULL IDENTITY(1, 1),
 	student_id int NOT NULL,
 	course_id int NOT NULL,
-	PRIMARY KEY(student_id, course_id),
+	PRIMARY KEY(id),
 	FOREIGN KEY(student_id) REFERENCES Students(student_id),
 	FOREIGN KEY(course_id) REFERENCES Courses(course_id)
 );

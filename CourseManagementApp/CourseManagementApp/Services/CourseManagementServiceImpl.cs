@@ -64,11 +64,24 @@ namespace CourseManagementApp.Services
             }
         }
 
+        public List<CourseDTO>? GetCoursesByStudentId(int id)
+        {
+            try
+            {
+                return ComposeCourseDTOList(_dao.GetCoursesByStudentId(id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
         public CourseDTO? GetCourse(int id)
         {
             try
             {
-                return ComposeCourseDTO(_dao.GetCourse(id));
+                return ComposeCourseDTO(_dao.GetCourseById(id));
             }
             catch (Exception e)
             {
@@ -90,10 +103,27 @@ namespace CourseManagementApp.Services
             }
         }
 
-        // Helper Functions
-        private CourseTeacherDTO? ComposeCourseTeacher()
+        public bool UpdateCourse(StudentCoursesJTDTO studentCoursesJTDTO)
         {
-            return null;
+            try
+            {
+                return _dao.UpdateCourseStudentJT(ComposeStudentCourseJT(studentCoursesJTDTO));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+        }
+
+        // Helper Functions
+        private StudentCourseJT ComposeStudentCourseJT(StudentCoursesJTDTO dto)
+        {
+            return new()
+            {
+                StudentId = dto.StudentId,
+                CourseId = dto.CourseId,
+            };
         }
 
         private Course ComposeCourse(CourseDTO dto)
