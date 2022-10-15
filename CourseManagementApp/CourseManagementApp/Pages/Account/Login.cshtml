@@ -1,0 +1,30 @@
+﻿@page
+@model CourseManagementApp.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container w-50 py-3">
+    <form method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input name="userDTO.Username" type="text" class="form-control" id="username">
+            <span asp-validation-for="@Model.userDTO.Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input name="userDTO.UserPassword" type="password" class="form-control" id="password">
+            <span asp-validation-for="@Model.userDTO.UserPassword" class="text-danger"></span>
+        </div>
+        @if (Model.WrongCredentials)
+        {
+            <span class="text-danger">Wrong credentials inserted!</span>
+        }
+        <div class="text-center my-2">
+            <span class="text-center">Don't have an account? <a href="/Account/CreateAccount">create an account</a></span>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-50">Login</button>
+        </div>
+    </form>
+</div>

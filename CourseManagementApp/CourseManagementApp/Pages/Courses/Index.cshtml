@@ -1,0 +1,31 @@
+﻿@page
+@model CourseManagementApp.Pages.Courses.IndexModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<div class="container">
+    <h3 class="text-center">Welcome @User?.Identity?.Name</h3>
+    <div class="row my-3 p-3 shadow shadow-lg border border-1">
+        <div class="col-md-6">
+            <h4 class="text-center">My Courses</h4>
+            <div class="container py-2">
+                <div class="container shadow-sm py-2">
+                    <label class="col-form-label text-start" for="ViewID">Course name</label>
+                    <a class="btn btn-primary btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">View</a>
+                    <a class="btn btn-danger btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">Leave</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4 class="text-center">Available Courses</h4>
+            <div class="container py-2">
+                <div class="container shadow-sm py-2">
+                    <label class="col-form-label text-start" for="ViewID">Course name</label>
+                    <a class="btn btn-primary btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">View</a>
+                    <a class="btn btn-success btn-sm float-end w-25 mx-1" name="ViewID" href="Course Id">Join</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
