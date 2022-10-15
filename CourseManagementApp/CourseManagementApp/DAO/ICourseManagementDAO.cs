@@ -8,7 +8,7 @@ namespace CourseManagementApp.DAO
     {
         bool ValidateUser(User user, out CookieUserDTO? cud);
         bool CreateUser(User user, IRole role);
-        bool CreateCourse();
+        bool CreateCourse(Course course);
         //DbSet<Student> GetStudents();
         //DbSet<Teacher> GetTeachers();
     }

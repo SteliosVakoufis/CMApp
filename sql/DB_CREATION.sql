@@ -31,6 +31,7 @@ CREATE TABLE Students(
 
 CREATE TABLE Courses (
 	course_id int NOT NULL IDENTITY(1, 1),
+	course_name VARCHAR(55) NOT NULL,
 	course_description VARCHAR(500) NOT NULL,
 	teacher_id int NOT NULL,
 	PRIMARY KEY(course_id),

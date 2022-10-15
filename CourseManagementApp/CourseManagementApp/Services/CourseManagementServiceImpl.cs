@@ -45,7 +45,18 @@ namespace CourseManagementApp.Services
             }
         }
 
+        public bool CreateCourse(CourseDTO courseDTO)
+        {
+            if (courseDTO is null) return false;
+            return _dao.CreateCourse(ComposeCourse(courseDTO));
+        }
+
         // Helper Functions
+        private Course ComposeCourse(CourseDTO dto)
+        {
+            return new Course(dto.Name, dto.Description, dto.Teacher_Id);
+        }
+
         private User ComposeUser(UserDTO dto)
         {
             return new()
@@ -68,15 +79,15 @@ namespace CourseManagementApp.Services
             {
                 role = new Student()
                 {
-                    Student_Firstname = createUserDTO.Firstname,
-                    Student_Lastname = createUserDTO.Lastname,
+                    Firstname = createUserDTO.Firstname,
+                    Lastname = createUserDTO.Lastname,
                 };
             }else if (createUserDTO.Role == "teacher")
             {
                 role = new Teacher()
                 {
-                    Teacher_Firstname = createUserDTO.Firstname,
-                    Teacher_Lastname = createUserDTO.Lastname,
+                    Firstname = createUserDTO.Firstname,
+                    Lastname = createUserDTO.Lastname,
                 };
             }
         }

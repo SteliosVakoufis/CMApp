@@ -7,36 +7,36 @@
 <div class="container w-50 py-3">
      <form method="post">
           <div class="mb-3">
-               <label for="Username" class="form-label">User name</label>
+            <label for="CreateUserDTO.Username" class="form-label">User name</label>
                <input name="CreateUserDTO.Username" type="text" class="form-control" id="username" @*required*@>
                @if(Model.errorMsg != "") {<span class="text-danger">@Model.errorMsg</span>}
                 <span asp-validation-for="@Model.CreateUserDTO.Username" class="text-danger"></span>
           </div>
           <div class="mb-3">
-               <label for="Firstname" class="form-label">First name</label>
+            <label for="CreateUserDTO.Firstname" class="form-label">First name</label>
                <input name="CreateUserDTO.Firstname" type="text" class="form-control" id="firstname" @*required*@>
                 <span asp-validation-for="@Model.CreateUserDTO.Firstname" class="text-danger"></span>
           </div>
           <div class="mb-3">
-               <label for="Lastname" class="form-label">Last name</label>
+            <label for="CreateUserDTO.Lastname" class="form-label">Last name</label>
                <input name="CreateUserDTO.Lastname" type="text" class="form-control" id="lastname" @*required*@>
                 <span asp-validation-for="@Model.CreateUserDTO.Lastname" class="text-danger"></span>
           </div>
           <div class="mb-3">
-               <label for="Password" class="form-label">Password</label>
+            <label for="CreateUserDTO.Password" class="form-label">Password</label>
                <input name="CreateUserDTO.Password" type="password" class="form-control" id="password" @*required*@>
                 <span asp-validation-for="@Model.CreateUserDTO.Password" class="text-danger"></span>
           </div>
           <div class="container mb-3 text-center">
                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="CreateUserDTO.Role" id="student" value="student" checked @*required*@>
-                    <label class="form-check-label" for="student">
+                    <label class="form-check-label" for="CreateUserDTO.Role">
                          Student
                     </label>
                </div>
                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="CreateUserDTO.Role" id="teacher" value="teacher" @*required*@>
-                    <label class="form-check-label" for="teacher">
+                    <label class="form-check-label" for="CreateUserDTO.Role">
                          Teacher
                     </label>
                </div>

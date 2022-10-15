@@ -23,13 +23,13 @@ namespace CourseManagementApp.DAO
                 if (role is Teacher teacher)
                 {
                     teacher = (Teacher)role;
-                    teacher.Teacher_Id = user_id;
+                    teacher.Id = user_id;
                     _context.Teachers.Add(teacher);
                 }
                 else if (role is Student student)
                 {
                     student = (Student)role;
-                    student.Student_Id = user_id;
+                    student.Id = user_id;
                     _context.Students.Add(student);
                 }
                 _context.SaveChanges();
@@ -56,26 +56,38 @@ namespace CourseManagementApp.DAO
                     cud.Username = result?.Username!;
                     cud.Id = result?.Id.ToString()!;
 
-                    if (_context.Teachers.Any(x => x.Teacher_Id == result!.Id))
+                    if (_context.Teachers.Any(x => x.Id == result!.Id))
                     {
                         var teacher = _context.Teachers.FirstOrDefault(
-                        x => x.Teacher_Id == id);
-                        cud.Firstname = teacher?.Teacher_Firstname!;
-                        cud.Lastname = teacher?.Teacher_Lastname!;
+                        x => x.Id == id);
+                        cud.Firstname = teacher?.Firstname!;
+                        cud.Lastname = teacher?.Lastname!;
                         cud.Role = "Teacher";
                     }
                     else
                     {
                         var student = _context.Students.FirstOrDefault(
-                        x => x.Student_Id == id);
-                        cud.Firstname = student?.Student_Firstname!;
-                        cud.Lastname = student?.Student_Lastname!;
+                        x => x.Id == id);
+                        cud.Firstname = student?.Firstname!;
+                        cud.Lastname = student?.Lastname!;
                         cud.Role = "Student";
                     }
                     return true;
                 }
-
                 return false;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool CreateCourse(Course course)
+        {
+            try
+            {
+                _context.Courses.Add(course);
+                return _context.SaveChanges() > 0;
             }
             catch (Exception e)
             {

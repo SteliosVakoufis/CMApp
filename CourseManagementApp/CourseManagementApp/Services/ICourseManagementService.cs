@@ -8,5 +8,7 @@ namespace CourseManagementApp.Services
         bool ValidateUser(UserDTO userDTO, out CookieUserDTO? cud);
 
         bool CreateUser(CreateUserDTO createUserDTO);
+
+        bool CreateCourse(CourseDTO courseDTO);
     }
 }
