@@ -7,7 +7,7 @@ namespace CourseManagementApp.Data.DTO
     public class CourseDTO
     {
         [BindProperty]
-        public int Course_Id { get; set; }
+        public int Id { get; set; }
 
         [BindProperty]
         [Required]
@@ -21,6 +21,15 @@ namespace CourseManagementApp.Data.DTO
         public string? Description { get; set; }
 
         [BindProperty]
-        public int Teacher_Id { get; set; }
+        public int T_Id { get; set; }
+
+        public CourseDTO() { }
+
+        public CourseDTO(int id, string? name, string? description)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+        }
     }
 }

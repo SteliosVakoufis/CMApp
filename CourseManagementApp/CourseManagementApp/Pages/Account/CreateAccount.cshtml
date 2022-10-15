@@ -7,7 +7,7 @@
 <div class="container w-50 py-3">
      <form method="post">
           <div class="mb-3">
-            <label for="CreateUserDTO.Username" class="form-label">User name</label>
+            <label for="CreateUserDTO.Username" class="form-label">Username</label>
                <input name="CreateUserDTO.Username" type="text" class="form-control" id="username" @*required*@>
                @if(Model.errorMsg != "") {<span class="text-danger">@Model.errorMsg</span>}
                 <span asp-validation-for="@Model.CreateUserDTO.Username" class="text-danger"></span>

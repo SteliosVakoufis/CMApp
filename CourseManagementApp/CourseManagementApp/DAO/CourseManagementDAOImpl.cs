@@ -35,9 +35,9 @@ namespace CourseManagementApp.DAO
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
 
@@ -76,9 +76,9 @@ namespace CourseManagementApp.DAO
                 }
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
 
@@ -89,9 +89,65 @@ namespace CourseManagementApp.DAO
                 _context.Courses.Add(course);
                 return _context.SaveChanges() > 0;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
+            }
+        }
+
+        public List<Course> GetAllCourses()
+        {
+            try
+            {
+                return _context.Courses.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public Course GetCourse(int id)
+        {
+            try
+            {
+                var result = 
+                    (from course in _context.Courses
+                    where course.Id == id
+                    select course).ToList().First();
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public CourseTeacherDTO GetCourseTeacher(int id)
+        {
+            try
+            {
+                var query =
+                    (from course in _context.Courses
+                    join teacher in _context.Teachers on course.T_Id equals teacher.Id
+                    where course.Id == id
+                    select new {course.Id, course.Name, course.Description, teacher.Firstname, teacher.Lastname})
+                    .FirstOrDefault();
+
+                CourseTeacherDTO result = new()
+                {
+                    Id = query.Id,
+                    Name = query.Name,
+                    Description = query.Description,
+                    Firstname = query.Firstname,
+                    Lastname = query.Lastname
+                };
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

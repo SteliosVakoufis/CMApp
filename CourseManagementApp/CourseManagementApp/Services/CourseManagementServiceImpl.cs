@@ -51,10 +51,75 @@ namespace CourseManagementApp.Services
             return _dao.CreateCourse(ComposeCourse(courseDTO));
         }
 
+        public List<CourseDTO>? GetAllCourses()
+        {
+            try
+            {
+                return ComposeCourseDTOList(_dao.GetAllCourses());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
+        public CourseDTO? GetCourse(int id)
+        {
+            try
+            {
+                return ComposeCourseDTO(_dao.GetCourse(id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
+        public CourseTeacherDTO? GetCourseTeacher(int id)
+        {
+            try
+            {
+                return _dao.GetCourseTeacher(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
         // Helper Functions
+        private CourseTeacherDTO? ComposeCourseTeacher()
+        {
+            return null;
+        }
+
         private Course ComposeCourse(CourseDTO dto)
         {
-            return new Course(dto.Name, dto.Description, dto.Teacher_Id);
+            return new(dto.Name, dto.Description, dto.T_Id);
+        }
+
+        private CourseDTO? ComposeCourseDTO(Course course_data)
+        {
+            return new CourseDTO(
+                course_data.Id,
+                course_data.Name,
+                course_data.Description
+            );
+        }
+
+        private List<CourseDTO> ComposeCourseDTOList(List<Course> data)
+        {
+            List<CourseDTO> result = new();
+
+            foreach (var item in data)
+            {
+                result.Add(new(item.Id, item.Name, item.Description));
+            }
+
+            return result;
         }
 
         private User ComposeUser(UserDTO dto)
@@ -67,27 +132,27 @@ namespace CourseManagementApp.Services
             };
         }
 
-        private void ComposeUserRole(CreateUserDTO createUserDTO, out User? user, out IRole? role)
+        private void ComposeUserRole(CreateUserDTO dto, out User? user, out IRole? role)
         {
             role = null;
             user = new()
             {
-                Username = createUserDTO.Username,
-                Password = createUserDTO.Password,
+                Username = dto.Username,
+                Password = dto.Password,
             };
-            if (createUserDTO.Role == "student")
+            if (dto.Role == "student")
             {
                 role = new Student()
                 {
-                    Firstname = createUserDTO.Firstname,
-                    Lastname = createUserDTO.Lastname,
+                    Firstname = dto.Firstname,
+                    Lastname = dto.Lastname,
                 };
-            }else if (createUserDTO.Role == "teacher")
+            }else if (dto.Role == "teacher")
             {
                 role = new Teacher()
                 {
-                    Firstname = createUserDTO.Firstname,
-                    Lastname = createUserDTO.Lastname,
+                    Firstname = dto.Firstname,
+                    Lastname = dto.Lastname,
                 };
             }
         }

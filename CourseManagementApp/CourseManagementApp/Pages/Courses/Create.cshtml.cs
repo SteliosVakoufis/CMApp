@@ -19,7 +19,11 @@ namespace CourseManagementApp.Pages.Courses
 
         public IActionResult OnGet()
         {
-            if (!User.Identity!.IsAuthenticated) return Redirect("/");
+            if (!User.Identity!.IsAuthenticated) 
+                return Redirect("/");
+
+            if (!(User.Claims.ToList()[0].Value == "Teacher"))
+                return Redirect("/Courses");
 
             return Page();
         }
@@ -28,7 +32,7 @@ namespace CourseManagementApp.Pages.Courses
         {
             if (ModelState.IsValid)
             {
-                CourseDTO.Teacher_Id = int.Parse(User.Claims.ToList()[1].Value);
+                CourseDTO.T_Id = int.Parse(User.Claims.ToList()[1].Value);
                 _service.CreateCourse(CourseDTO);
                 return Redirect("/Courses");
             }

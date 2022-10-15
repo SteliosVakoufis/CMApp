@@ -1,3 +1,5 @@
+using CourseManagementApp.Data.DTO;
+using CourseManagementApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,8 +7,20 @@ namespace CourseManagementApp.Pages.Courses
 {
     public class ViewCourseModel : PageModel
     {
-        public void OnGet()
+        [BindProperty]
+        public CourseTeacherDTO CourseTeacher { get; set; }
+
+        ICourseManagementService _service;
+        public ViewCourseModel(ICourseManagementService service)
         {
+            _service = service;
+        }
+
+        public IActionResult OnGet(int id)
+        {
+            CourseTeacher = _service.GetCourseTeacher(id)!;
+            if(CourseTeacher == null) return NotFound();
+            return Page();
         }
     }
 }

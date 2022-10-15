@@ -1,4 +1,17 @@
-﻿@page
+﻿@page "{id:int}"
 @model CourseManagementApp.Pages.Courses.ViewCourseModel
 @{
 }
+
+<div class="container">
+    <div class="container w-75 py-2">
+        <div class="text-center">
+            <h3>@Model.CourseTeacher.Name</h3>
+            <span>@Model.CourseTeacher.Lastname @Model.CourseTeacher.Firstname</span>
+        </div>
+        <div class="container shadow shadow-sm my-3 p-5">@Model.CourseTeacher.Description</div>
+        
+        <a class="btn btn-danger" href="/Courses">Back</a>
+        <a class="btn btn-success" href="/Courses/Join/@Model.CourseTeacher.Id">Join</a>
+    </div>
+</div>
