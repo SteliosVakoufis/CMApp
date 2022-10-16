@@ -19,6 +19,8 @@ namespace CourseManagementApp.Services
 
         CourseTeacherDTO? GetCourseTeacher(int id);
 
-        bool UpdateCourse(StudentCoursesJTDTO studentCoursesJTDTO);
+        bool UpdateCourseStudentJT(StudentCoursesJTDTO studentCoursesJTDTO);
+
+        bool DeleteCourseStudentJT(int id);
     }
 }

@@ -23,6 +23,9 @@ namespace CourseManagementApp.Data.DTO
         [BindProperty]
         public int T_Id { get; set; }
 
+        [BindProperty]
+        public int scId { get; set; }
+
         public CourseDTO() { }
 
         public CourseDTO(int id, string? name, string? description)

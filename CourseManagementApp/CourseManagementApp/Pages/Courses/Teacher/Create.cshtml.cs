@@ -1,11 +1,13 @@
 using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace CourseManagementApp.Pages.Courses
+namespace CourseManagementApp.Pages.Courses.Teacher
 {
+    [Authorize(Roles = "Teacher")]
     public class CreateModel : PageModel
     {
         [BindProperty, Required]
@@ -17,15 +19,8 @@ namespace CourseManagementApp.Pages.Courses
             _service = service;
         }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            if (!User.Identity!.IsAuthenticated) 
-                return Redirect("/");
-
-            if (!(User.Claims.ToList()[0].Value == "Teacher"))
-                return Redirect("/Courses");
-
-            return Page();
         }
 
         public IActionResult OnPost()

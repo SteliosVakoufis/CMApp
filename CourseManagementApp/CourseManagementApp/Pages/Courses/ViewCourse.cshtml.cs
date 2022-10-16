@@ -1,10 +1,12 @@
 using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CourseManagementApp.Pages.Courses
 {
+    [Authorize(Roles = "Student, Teacher")]
     public class ViewCourseModel : PageModel
     {
         [BindProperty]

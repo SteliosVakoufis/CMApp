@@ -19,6 +19,7 @@ namespace CourseManagementApp
                 options.Cookie.Name = "CookieAuth";
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/";
             });
 
             builder.Services.AddScoped<ICourseManagementService, CourseManagementServiceImpl>();

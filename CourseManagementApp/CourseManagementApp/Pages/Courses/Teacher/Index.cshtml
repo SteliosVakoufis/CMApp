@@ -1,0 +1,45 @@
+﻿@page
+@model CourseManagementApp.Pages.Courses.Teacher.IndexModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<div class="container">
+    <h3 class="text-center">Welcome @User?.Identity?.Name</h3>
+    <div class="row my-3 p-3 shadow shadow-lg border border-1" style="min-height: 500px">
+        <div class="col-md-6 border border-1 pt-2">
+            <h4 class="text-center">My Courses</h4>
+            <div class="container py-2">
+                @foreach (var item in Model.StudentCourses)
+                {
+                    <div class="row shadow-sm py-2">
+                        <div class="d-flex w-75 align-items-center" style="vertical">
+                            <h4 class="my-0">@item.Name</h4>
+                        </div>
+                        <div class="container w-25">
+                            <a class="w-100 h-50 btn btn-primary btn-sm float-end mx-1 border" name="ViewID" href="/Courses/ViewCourse/@item.Id">View</a>
+                            <a class="w-100 h-50 btn btn-danger btn-sm float-end mx-1 border" name="ViewID" href="/Courses/Student/Leave/@item.scId">Leave</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-6 border border-1 pt-2">
+            <h4 class="text-center">Available Courses</h4>
+            <div class="container py-2">
+                @foreach (var item in Model.AvailableCourses)
+                {
+                    <div class="row shadow-sm py-2">
+                        <div class="d-flex w-75 align-items-center" style="vertical">
+                            <h4 class="my-0">@item.Name</h4>
+                        </div>
+                        <div class="container w-25">
+                            <a class="w-100 h-50 btn btn-primary btn-sm float-end mx-1 border" name="ViewID" href="/Courses/ViewCourse/@item.Id">View</a>
+                            <a class="w-100 h-50 btn btn-success btn-sm float-end mx-1 border" name="ViewID" href="/Courses/Student/Join/@item.Id/@User?.Claims.ToList()[1].Value">Join</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,11 @@
 using CourseManagementApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CourseManagementApp.Pages.Courses
+namespace CourseManagementApp.Pages.Courses.Student
 {
+    [Authorize(Roles = "Student")]
     public class JoinModel : PageModel
     {
         private readonly ICourseManagementService _service;
@@ -14,11 +16,9 @@ namespace CourseManagementApp.Pages.Courses
 
         public IActionResult OnGet(int c_id, int s_id)
         {
-            if (!User.Identity!.IsAuthenticated) return Redirect("/");
+            _service.UpdateCourseStudentJT(new() { CourseId = c_id, StudentId = s_id });
 
-            _service.UpdateCourse(new() { CourseId = c_id, StudentId = s_id});
-
-            return Redirect("/Courses");
+            return Redirect("/Courses/Student");
         }
     }
 }

@@ -64,6 +64,7 @@ namespace CourseManagementApp.DAO
                         cud.Firstname = teacher?.Firstname!;
                         cud.Lastname = teacher?.Lastname!;
                         cud.Role = "Teacher";
+                        
                     }
                     else
                     {
@@ -109,7 +110,7 @@ namespace CourseManagementApp.DAO
             }
         }
 
-        public List<Course> GetCoursesByStudentId(int id)
+        public List<CourseDTO> GetCoursesByStudentId(int id)
         {
             try
             {
@@ -118,10 +119,10 @@ namespace CourseManagementApp.DAO
                      join sc in _context.StudentsCoursesJT
                         on course.Id equals sc.CourseId
                      where sc.StudentId == id
-                     select new { course.Name, course.Description, course.Id}
+                     select new { course.Name, course.Description, course.Id, scId = sc.Id}
                      );
 
-                List<Course> result = new();
+                List<CourseDTO> result = new();
 
                 foreach (var course in query)
                 {
@@ -130,6 +131,7 @@ namespace CourseManagementApp.DAO
                         Id = course.Id,
                         Name = course.Name,
                         Description = course.Description,
+                        scId = course.scId,
                     });
                 }
 
@@ -197,7 +199,25 @@ namespace CourseManagementApp.DAO
                 if (exists) return false; 
 
                 _context.StudentsCoursesJT.Add(data);
-                return (_context.SaveChanges() > 0);
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool DeleteCourseStudentJT(int id)
+        {
+            try
+            {
+                _context.StudentsCoursesJT.Remove((
+                    from cs in _context.StudentsCoursesJT
+                    where cs.Id == id
+                    select cs
+                 )?.FirstOrDefault()!);
+
+                return _context.SaveChanges() > 0;
             }
             catch (Exception)
             {

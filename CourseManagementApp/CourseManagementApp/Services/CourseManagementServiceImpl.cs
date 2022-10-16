@@ -68,7 +68,7 @@ namespace CourseManagementApp.Services
         {
             try
             {
-                return ComposeCourseDTOList(_dao.GetCoursesByStudentId(id));
+                return _dao.GetCoursesByStudentId(id);
             }
             catch (Exception e)
             {
@@ -103,11 +103,24 @@ namespace CourseManagementApp.Services
             }
         }
 
-        public bool UpdateCourse(StudentCoursesJTDTO studentCoursesJTDTO)
+        public bool UpdateCourseStudentJT(StudentCoursesJTDTO studentCoursesJTDTO)
         {
             try
             {
                 return _dao.UpdateCourseStudentJT(ComposeStudentCourseJT(studentCoursesJTDTO));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+        }
+
+        public bool DeleteCourseStudentJT(int id)
+        {
+            try
+            {
+                return _dao.DeleteCourseStudentJT(id);
             }
             catch (Exception e)
             {
