@@ -1,0 +1,25 @@
+﻿@page "{id:int}"
+@model CourseManagementApp.Pages.Courses.Teacher.EditModel
+@{
+    ViewData["Title"] = "Create Course";
+}
+
+<div class="container w-75">
+    <form method="post">
+        <input name="CourseDTO.Id" value="@Model.CourseDTO.Id" hidden/>
+        <div class="my-4">
+            @*<label for="courseName" class="form-label">Course Name</label>*@
+            <input name="CourseDTO.Name" type="text" class="form-control" id="courseName" 
+                value="@Model.CourseDTO.Name">
+            <span asp-validation-for="@Model.CourseDTO.Name" class="text-danger"></span>
+        </div>
+        <div class="form-floating">
+            <textarea name="CourseDTO.Description" class="form-control" id="courseDescription" style="min-height: 250px">@Model.CourseDTO.Description</textarea>
+            <label for="CourseDTO.Description">Course Description</label>
+            <span asp-validation-for="@Model.CourseDTO.Description" class="text-danger"></span>
+        </div>
+        <div class="container my-2 text-center">
+            <button type="submit" class="btn btn-primary w-25 mt-2">Update Course</button>
+        </div>
+    </form>
+</div>

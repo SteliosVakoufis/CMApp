@@ -28,5 +28,12 @@ namespace CourseManagementApp.Data.Models
             Description = description;
             T_Id = t_id;
         }
+
+        public Course(int id, string? name, string? description)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+        }
     }
 }

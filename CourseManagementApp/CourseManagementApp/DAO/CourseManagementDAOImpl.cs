@@ -269,5 +269,28 @@ namespace CourseManagementApp.DAO
                 throw;
             }
         }
+
+        public bool UpdateCourse(Course course)
+        {
+            try
+            {
+                var query =
+                    (from c in _context.Courses
+                    where c.Id == course.Id
+                    select c).FirstOrDefault();
+
+                if (query is not null)
+                {
+                    query.Name = course.Name;
+                    query.Description = course.Description;
+                }
+
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

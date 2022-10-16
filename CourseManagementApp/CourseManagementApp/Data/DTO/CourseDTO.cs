@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseManagementApp.Data.DTO
@@ -17,7 +16,7 @@ namespace CourseManagementApp.Data.DTO
 
         [BindProperty]
         [Required]
-        [MaxLength(500)]
+        [MaxLength(5000)]
         public string? Description { get; set; }
 
         [BindProperty]

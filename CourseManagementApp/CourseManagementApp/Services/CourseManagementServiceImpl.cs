@@ -47,8 +47,30 @@ namespace CourseManagementApp.Services
 
         public bool CreateCourse(CourseDTO courseDTO)
         {
-            if (courseDTO is null) return false;
-            return _dao.CreateCourse(ComposeCourse(courseDTO));
+            try
+            {
+                if (courseDTO is null) return false;
+                return _dao.CreateCourse(ComposeCourseByT_Id(courseDTO));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+        }
+
+        public bool UpdateCourse(CourseDTO courseDTO)
+        {
+            try
+            {
+                if (courseDTO is null) return false;
+                return _dao.UpdateCourse(ComposeCourseByCourseId(courseDTO));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
         }
 
         public List<CourseDTO>? GetAllCourses()
@@ -165,9 +187,14 @@ namespace CourseManagementApp.Services
             };
         }
 
-        private Course ComposeCourse(CourseDTO dto)
+        private Course ComposeCourseByT_Id(CourseDTO dto)
         {
             return new(dto.Name, dto.Description, dto.T_Id);
+        }
+
+        private Course ComposeCourseByCourseId(CourseDTO dto)
+        {
+            return new(dto.Id, dto.Name, dto.Description);
         }
 
         private CourseDTO? ComposeCourseDTO(Course course_data)

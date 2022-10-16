@@ -10,7 +10,9 @@ namespace CourseManagementApp.Services
         bool CreateUser(CreateUserDTO createUserDTO);
 
         bool CreateCourse(CourseDTO courseDTO);
-        
+
+        bool UpdateCourse(CourseDTO courseDTO);
+
         List<CourseDTO>? GetAllCourses();
 
         List<CourseDTO>? GetCoursesByStudentId(int id);

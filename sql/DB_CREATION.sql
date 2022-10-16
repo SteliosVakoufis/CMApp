@@ -1,10 +1,12 @@
-USE FinalExerciseKEDIVIM
-
 DROP TABLE Users;
 DROP TABLE Teachers;
 DROP TABLE Students;
 DROP TABLE Courses;
 DROP TABLE StudentsCourses_JT;
+
+CREATE DATABASE FinalExerciseKEDIVIM
+
+USE FinalExerciseKEDIVIM
 
 CREATE TABLE Users(
 	[user_id] int UNIQUE NOT NULL IDENTITY(1, 1),
@@ -32,7 +34,7 @@ CREATE TABLE Students(
 CREATE TABLE Courses (
 	course_id int NOT NULL IDENTITY(1, 1),
 	course_name VARCHAR(55) NOT NULL,
-	course_description VARCHAR(500) NOT NULL,
+	course_description VARCHAR(5000) NOT NULL,
 	teacher_id int NOT NULL,
 	PRIMARY KEY(course_id),
 	FOREIGN KEY(teacher_id) REFERENCES Teachers(teacher_id)

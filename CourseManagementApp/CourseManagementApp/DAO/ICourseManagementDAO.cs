@@ -1,6 +1,5 @@
 ﻿using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Data.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace CourseManagementApp.DAO
 {
@@ -11,6 +10,8 @@ namespace CourseManagementApp.DAO
         bool CreateUser(User user, IRole role);
 
         bool CreateCourse(Course course);
+
+        bool UpdateCourse(Course course);
 
         List<Course> GetAllCourses();
 
