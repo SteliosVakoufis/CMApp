@@ -1,8 +1,6 @@
 ﻿using CourseManagementApp.Data;
 using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Data.Models;
-using System.Collections.Generic;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CourseManagementApp.DAO
 {
@@ -245,6 +243,24 @@ namespace CourseManagementApp.DAO
                     where cs.Id == id
                     select cs
                  )?.FirstOrDefault()!);
+
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool DeleteCourseById(int id)
+        {
+            try
+            {
+                _context.Courses.Remove((
+                    from course in _context.Courses
+                    where course.Id == id
+                    select course
+                )?.FirstOrDefault()!);
 
                 return _context.SaveChanges() > 0;
             }

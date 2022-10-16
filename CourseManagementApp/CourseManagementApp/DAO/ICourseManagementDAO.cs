@@ -26,7 +26,6 @@ namespace CourseManagementApp.DAO
 
         bool DeleteCourseStudentJT(int id);
 
-        //DbSet<Student> GetStudents();
-
+        bool DeleteCourseById(int id);
     }
 }

@@ -142,6 +142,19 @@ namespace CourseManagementApp.Services
             }
         }
 
+        public bool DeleteCourseById(int id)
+        {
+            try
+            {
+                return _dao.DeleteCourseById(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+        }
+
         // Helper Functions
         private StudentCourseJT ComposeStudentCourseJT(StudentCoursesJTDTO dto)
         {

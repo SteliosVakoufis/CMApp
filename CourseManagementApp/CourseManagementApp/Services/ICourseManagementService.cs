@@ -24,5 +24,7 @@ namespace CourseManagementApp.Services
         bool AddCourseStudentJT(StudentCoursesJTDTO studentCoursesJTDTO);
 
         bool DeleteCourseStudentJT(int id);
+
+        bool DeleteCourseById(int id);
     }
 }

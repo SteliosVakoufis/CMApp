@@ -44,5 +44,5 @@ CREATE TABLE StudentsCourses_JT(
 	course_id int NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(student_id) REFERENCES Students(student_id),
-	FOREIGN KEY(course_id) REFERENCES Courses(course_id)
+	FOREIGN KEY(course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
 );
