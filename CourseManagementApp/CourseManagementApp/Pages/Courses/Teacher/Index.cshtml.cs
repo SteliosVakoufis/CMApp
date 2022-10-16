@@ -3,6 +3,7 @@ using CourseManagementApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace CourseManagementApp.Pages.Courses.Teacher
 {
@@ -15,6 +16,8 @@ namespace CourseManagementApp.Pages.Courses.Teacher
         [BindProperty]
         public List<CourseDTO> StudentCourses { get; set; }
 
+        [BindProperty, Required]
+        public CourseDTO CourseDTO { get; set; }
 
         private readonly ICourseManagementService _service;
         public IndexModel(ICourseManagementService service)
@@ -24,27 +27,18 @@ namespace CourseManagementApp.Pages.Courses.Teacher
 
         public IActionResult OnGet()
         {
-            AvailableCourses = _service.GetAllCourses();
-            if (AvailableCourses is null)
-                AvailableCourses = new();
+            
 
-            StudentCourses = _service.GetCoursesByStudentId(int.Parse(User.Claims.ToList()[1].Value));
-            if (StudentCourses is null)
-                StudentCourses = new();
+            return Page();
+        }
 
-            HashSet<int> ids = new();
-            foreach (var item in StudentCourses)
-                ids.Add(item.Id);
-
-            for (int i = 0; i < AvailableCourses.Count(); i++)
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid)
             {
-                if (ids.Contains(AvailableCourses[i].Id))
-                {
-                    AvailableCourses.RemoveAt(i);
-                    i--;
-                }
+                CourseDTO.T_Id = int.Parse(User.Claims.ToList()[1].Value);
+                _service.CreateCourse(CourseDTO);
             }
-
             return Page();
         }
     }
