@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{username?}"
 @model CourseManagementApp.Pages.Account.LoginModel
 @{
     ViewData["Title"] = "Login";
@@ -8,7 +8,7 @@
     <form method="POST">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input name="userDTO.Username" type="text" class="form-control" id="username">
+            <input name="userDTO.Username" type="text" class="form-control" id="username" value="@Model.userDTO.Username">
             <span asp-validation-for="@Model.userDTO.Username" class="text-danger"></span>
         </div>
         <div class="mb-3">

@@ -23,12 +23,16 @@ namespace CourseManagementApp.Pages.Account
             _service = service;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string? username)
         {
             if (User.Identity!.IsAuthenticated)
             {
                 return Redirect("/");
             }
+
+            userDTO = new();
+            if (username is not null)
+                userDTO.Username = username;
 
             return Page();
         }

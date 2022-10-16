@@ -21,9 +21,18 @@ namespace CourseManagementApp.Pages.Account
             _service = service;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string? username, string? firstname, string? lastname)
         {
             if (User.Identity!.IsAuthenticated) return Redirect("/");
+
+            CreateUserDTO = new();
+
+            if (username is not null)
+                CreateUserDTO.Username = username;
+            if (firstname is not null)
+                CreateUserDTO.Firstname = firstname;
+            if (lastname is not null)
+                CreateUserDTO.Lastname = lastname;
 
             return Page();
         }

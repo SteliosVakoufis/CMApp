@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{username?}/{firstname?}/{lastname?}"
 @model CourseManagementApp.Pages.Account.CreateAccountModel
 @{
     ViewData["Title"] = "Create Account";
@@ -8,23 +8,23 @@
      <form method="post">
           <div class="mb-3">
             <label for="CreateUserDTO.Username" class="form-label">Username</label>
-               <input name="CreateUserDTO.Username" type="text" class="form-control" id="username" @*required*@>
+               <input name="CreateUserDTO.Username" type="text" class="form-control" id="username" value="@Model.CreateUserDTO.Username">
                @if(Model.errorMsg != "") {<span class="text-danger">@Model.errorMsg</span>}
                 <span asp-validation-for="@Model.CreateUserDTO.Username" class="text-danger"></span>
           </div>
           <div class="mb-3">
-            <label for="CreateUserDTO.Firstname" class="form-label">First name</label>
-               <input name="CreateUserDTO.Firstname" type="text" class="form-control" id="firstname" @*required*@>
+                <label for="CreateUserDTO.Firstname" class="form-label">First name</label>
+                <input name="CreateUserDTO.Firstname" type="text" class="form-control" id="firstname" value="@Model.CreateUserDTO.Firstname">
                 <span asp-validation-for="@Model.CreateUserDTO.Firstname" class="text-danger"></span>
           </div>
           <div class="mb-3">
-            <label for="CreateUserDTO.Lastname" class="form-label">Last name</label>
-               <input name="CreateUserDTO.Lastname" type="text" class="form-control" id="lastname" @*required*@>
+                <label for="CreateUserDTO.Lastname" class="form-label">Last name</label>
+                <input name="CreateUserDTO.Lastname" type="text" class="form-control" id="lastname" value="@Model.CreateUserDTO.Lastname">
                 <span asp-validation-for="@Model.CreateUserDTO.Lastname" class="text-danger"></span>
           </div>
           <div class="mb-3">
             <label for="CreateUserDTO.Password" class="form-label">Password</label>
-               <input name="CreateUserDTO.Password" type="password" class="form-control" id="password" @*required*@>
+               <input name="CreateUserDTO.Password" type="password" class="form-control" id="password">
                 <span asp-validation-for="@Model.CreateUserDTO.Password" class="text-danger"></span>
           </div>
           <div class="container mb-3 text-center">
