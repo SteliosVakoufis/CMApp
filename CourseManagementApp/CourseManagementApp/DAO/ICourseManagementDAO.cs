@@ -16,11 +16,13 @@ namespace CourseManagementApp.DAO
 
         List<CourseDTO> GetCoursesByStudentId(int id);
 
+        List<CourseDTO> GetCoursesByTeacherId(int id);
+
         Course GetCourseById(int id);
 
         CourseTeacherDTO GetCourseTeacher(int id);
 
-        bool UpdateCourseStudentJT(StudentCourseJT data);
+        bool AddCourseStudentJT(StudentCourseJT data);
 
         bool DeleteCourseStudentJT(int id);
 

@@ -15,11 +15,13 @@ namespace CourseManagementApp.Services
 
         List<CourseDTO>? GetCoursesByStudentId(int id);
 
+        List<CourseDTO>? GetCoursesByTeacherId(int id);
+
         CourseDTO? GetCourse(int id);
 
         CourseTeacherDTO? GetCourseTeacher(int id);
 
-        bool UpdateCourseStudentJT(StudentCoursesJTDTO studentCoursesJTDTO);
+        bool AddCourseStudentJT(StudentCoursesJTDTO studentCoursesJTDTO);
 
         bool DeleteCourseStudentJT(int id);
     }

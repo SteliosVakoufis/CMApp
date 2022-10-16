@@ -11,10 +11,7 @@ namespace CourseManagementApp.Pages.Courses.Teacher
     public class IndexModel : PageModel
     {
         [BindProperty]
-        public List<CourseDTO> AvailableCourses { get; set; }
-
-        [BindProperty]
-        public List<CourseDTO> StudentCourses { get; set; }
+        public List<CourseDTO> TeacherCourses { get; set; }
 
         [BindProperty, Required]
         public CourseDTO CourseDTO { get; set; }
@@ -25,11 +22,9 @@ namespace CourseManagementApp.Pages.Courses.Teacher
             _service = service;
         }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            
-
-            return Page();
+            TeacherCourses = _service.GetCoursesByTeacherId(int.Parse(User.Claims.ToList()[1].Value))!;
         }
 
         public IActionResult OnPost()
@@ -37,7 +32,10 @@ namespace CourseManagementApp.Pages.Courses.Teacher
             if (ModelState.IsValid)
             {
                 CourseDTO.T_Id = int.Parse(User.Claims.ToList()[1].Value);
-                _service.CreateCourse(CourseDTO);
+                if (_service.CreateCourse(CourseDTO))
+                {
+                    TeacherCourses = _service.GetCoursesByTeacherId(int.Parse(User.Claims.ToList()[1].Value))!;
+                }
             }
             return Page();
         }

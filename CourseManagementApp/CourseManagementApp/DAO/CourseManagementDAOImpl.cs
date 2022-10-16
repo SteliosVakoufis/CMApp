@@ -2,6 +2,7 @@
 using CourseManagementApp.Data.DTO;
 using CourseManagementApp.Data.Models;
 using System.Collections.Generic;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CourseManagementApp.DAO
 {
@@ -143,6 +144,34 @@ namespace CourseManagementApp.DAO
             }
         }
 
+        public List<CourseDTO> GetCoursesByTeacherId(int id)
+        {
+            try
+            {
+                var query =
+                    (from course in _context.Courses
+                     where course.T_Id == id
+                     select course).ToList();
+
+                List<CourseDTO> result = new();
+
+                foreach (var course in query)
+                {
+                    result.Add(new()
+                    {
+                        Id = course.Id,
+                        Name = course.Name,
+                    });
+                }
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Course GetCourseById(int id)
         {
             try
@@ -187,7 +216,7 @@ namespace CourseManagementApp.DAO
             }
         }
 
-        public bool UpdateCourseStudentJT(StudentCourseJT data)
+        public bool AddCourseStudentJT(StudentCourseJT data)
         {
             try
             {

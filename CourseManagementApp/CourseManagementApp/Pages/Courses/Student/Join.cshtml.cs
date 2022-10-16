@@ -16,7 +16,7 @@ namespace CourseManagementApp.Pages.Courses.Student
 
         public IActionResult OnGet(int c_id, int s_id)
         {
-            _service.UpdateCourseStudentJT(new() { CourseId = c_id, StudentId = s_id });
+            _service.AddCourseStudentJT(new() { CourseId = c_id, StudentId = s_id });
 
             return Redirect("/Courses/Student");
         }
