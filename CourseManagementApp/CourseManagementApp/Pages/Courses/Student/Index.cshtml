@@ -7,13 +7,13 @@
 <div class="container">
     <h3 class="text-center">Welcome @User?.Identity?.Name</h3>
     <div class="row my-3 p-3 shadow shadow-lg border border-1" style="min-height: 500px">
-        <div class="col-md-6 border border-1 pt-2">
+        <div class="col-md-6 border border-1 pt-2 overflow-auto" style="max-height: 500px">
             <h4 class="text-center">Joined Courses</h4>
-            <div class="container py-2">
+            <div class="container py-2 overflow-auto">
                 @foreach (var item in Model.StudentCourses)
                 {
                     <div class="row shadow-sm py-2">
-                        <div class="d-flex w-75 align-items-center" style="vertical">
+                        <div class="d-flex w-75 align-items-center">
                             <h5 class="my-0">@item.Name</h5>
                         </div>
                         <div class="container w-25">
@@ -24,13 +24,13 @@
                 }
             </div>
         </div>
-        <div class="col-md-6 border border-1 pt-2">
+        <div class="col-md-6 border border-1 pt-2 overflow-auto" style="max-height: 500px">
             <h4 class="text-center">Available Courses</h4>
-            <div class="container py-2">
+            <div class="container py-2 overflow-auto">
                 @foreach (var item in Model.AvailableCourses)
                 {
                     <div class="row shadow-sm py-2">
-                        <div class="d-flex w-75 align-items-center" style="vertical">
+                        <div class="d-flex w-75 align-items-center">
                             <h5 class="my-0">@item.Name</h5>
                         </div>
                         <div class="container w-25">

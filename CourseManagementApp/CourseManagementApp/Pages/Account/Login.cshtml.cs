@@ -9,6 +9,7 @@ using System.Security.Claims;
 
 namespace CourseManagementApp.Pages.Account
 {
+    [AllowAnonymous]
     public class LoginModel : PageModel
     {
         [BindProperty, Required]

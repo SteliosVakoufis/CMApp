@@ -9,7 +9,7 @@
     <div class="row my-3 p-3 shadow shadow-lg border border-1" style="min-height: 500px">
         <div class="col-md-6 border border-1 pt-2">
             <h4 class="text-center">Courses Created</h4>
-            <div class="container py-2">
+                <div class="container py-2 overflow-auto" style="max-height: 500px">
                 @foreach (var item in Model.TeacherCourses)
                 {
                     <div class="row shadow-sm py-2">
