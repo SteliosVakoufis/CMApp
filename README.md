@@ -5,6 +5,6 @@ A course management application that lets you create a teacher or a student acco
 with a password for login purposes after that you can create/join/edit/delete courses\
 depending on your account type.\
 \
-Microsoft's SQL database is used to store/create/edit data.\
+Microsoft's SQL database is used to store data.\
 \
 HTML, CSS/Boostrap and JavaScript was used for the front-end
