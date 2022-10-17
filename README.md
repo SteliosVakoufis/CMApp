@@ -7,4 +7,4 @@ depending on your account type.\
 \
 Microsoft's SQL database is used to store data.\
 \
-HTML, CSS/Boostrap and JavaScript was used for the front-end
+HTML, CSS/Boostrap and JavaScript is used for the front-end
