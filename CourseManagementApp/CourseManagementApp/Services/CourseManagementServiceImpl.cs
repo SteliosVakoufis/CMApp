@@ -15,8 +15,6 @@ namespace CourseManagementApp.Services
 
         public bool CreateUser(CreateUserDTO createUserDTO)
         {
-            if (createUserDTO is null) return false;
-
             try
             {
                 ComposeUserRole(createUserDTO, out User? user, out IRole? role);
@@ -32,7 +30,6 @@ namespace CourseManagementApp.Services
         public bool ValidateUser(UserDTO userDTO, out CookieUserDTO? cud)
         {
             cud = null;
-            if (userDTO.Username is null || userDTO.UserPassword is null) return false;
 
             try
             {
