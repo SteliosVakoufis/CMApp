@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CourseManagementApp.Data.Models.Course" Collapsed="true">
+    <Position X="2.75" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Data\Models\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.Models.Student" Collapsed="true">
+    <Position X="2.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\Student.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.239" />
+  </Class>
+  <Class Name="CourseManagementApp.Data.Models.StudentCourseJT" Collapsed="true">
+    <Position X="2.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Data\Models\StudentCourseJT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.Models.User" Collapsed="true">
+    <Position X="2.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.Models.Teacher" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\Teacher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.23" />
+  </Class>
+  <Class Name="CourseManagementApp.DAO.CourseManagementDAOImpl">
+    <Position X="9.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAARAIAAIAAAACIIAIAAQAACAAAAAAQAIA=</HashCode>
+      <FileName>DAO\CourseManagementDAOImpl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="1.653" />
+  </Class>
+  <Class Name="CourseManagementApp.Data.ApplicationDbContext">
+    <Position X="6" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAhAAAAA=</HashCode>
+      <FileName>Data\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.CookieUserDTO" Collapsed="true">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAIEQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DTO\CookieUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.CourseDTO" Collapsed="true">
+    <Position X="4.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAACAQA=</HashCode>
+      <FileName>Data\DTO\CourseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.CourseTeacherDTO" Collapsed="true">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAgAAAIAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Data\DTO\CourseTeacherDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.CreateUserDTO" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAIEQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DTO\CreateUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.StudentCoursesJTDTO" Collapsed="true">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAAA=</HashCode>
+      <FileName>Data\DTO\StudentCoursesJTDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.TeacherDTO" Collapsed="true">
+    <Position X="6.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DTO\TeacherDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Data.DTO.UserDTO" Collapsed="true">
+    <Position X="2.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Data\DTO\UserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Services.CourseManagementServiceImpl">
+    <Position X="13" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAQACAAYAAIAABgCIIAIDAQAACAAAAAMQAIA=</HashCode>
+      <FileName>Services\CourseManagementServiceImpl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dao" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Left" Position="1.457" />
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Student.IndexModel">
+    <Position X="5.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAUAAAAAABA=</HashCode>
+      <FileName>Pages\Courses\Student\Index.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Student.JoinModel">
+    <Position X="2" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Courses\Student\Join.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Student.LeaveModel">
+    <Position X="3.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Courses\Student\Leave.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Teacher.DeleteModel">
+    <Position X="5.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Courses\Teacher\Delete.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Teacher.EditModel">
+    <Position X="3.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAgA=</HashCode>
+      <FileName>Pages\Courses\Teacher\Edit.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.Teacher.IndexModel">
+    <Position X="2" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAgA=</HashCode>
+      <FileName>Pages\Courses\Teacher\Index.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.ViewCourseModel">
+    <Position X="10" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Courses\ViewCourse.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Account.CreateAccountModel">
+    <Position X="3.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Account\CreateAccount.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Account.LoginModel">
+    <Position X="5.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAQMAAAAAAA=</HashCode>
+      <FileName>Pages\Account\Login.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Courses.IndexModel">
+    <Position X="8.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pages\Courses\Index.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseManagementApp.Pages.Account.LogoutModel">
+    <Position X="2" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\Account\Logout.cshtml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CourseManagementApp.Data.Models.IRole" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\IRole.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CourseManagementApp.DAO.ICourseManagementDAO">
+    <Position X="13.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAQAIAAIAAAACIIAIAAQAACAAAAAAQAIA=</HashCode>
+      <FileName>DAO\ICourseManagementDAO.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CourseManagementApp.Services.ICourseManagementService">
+    <Position X="8.5" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAIAAIAAAACIIAICAQAACAAAAAAQAIA=</HashCode>
+      <FileName>Services\ICourseManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
