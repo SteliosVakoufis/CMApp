@@ -42,7 +42,6 @@ namespace CourseManagementApp.Pages.Account
             Console.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
-
                 if (_service.CreateUser(CreateUserDTO))
                 {
                     return Redirect("/Account/Login");

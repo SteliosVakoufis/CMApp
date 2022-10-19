@@ -47,7 +47,7 @@ namespace CourseManagementApp.Pages.Account
                     var claims = new List<Claim> {
                         new Claim(ClaimTypes.Role, cud?.Role!),
                         new Claim(ClaimTypes.Sid, cud?.Id!),
-                        new Claim(ClaimTypes.Name, cud?.Firstname!)
+                        new Claim(ClaimTypes.Name, cud?.Firstname! + " " + cud?.Lastname)
                     };
 
                     var identity = new ClaimsIdentity(claims, "CookieAuth");
