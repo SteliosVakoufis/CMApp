@@ -1,4 +1,4 @@
-# CMApp - Project for KEDIVIM OPA
+# CMApp - Project for SEV-OPA
 Final Project for KEDIVIM OPA written with C# - ASP.NET Core - Entity Framework\
 ![alt text](https://i.imgur.com/2e4U2aF.png)\
 A course management application that lets you create a teacher or a student account\
